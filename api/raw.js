@@ -1,9 +1,9 @@
-let scripts = {};
-
 export default function handler(req, res) {
+  globalThis.scripts = globalThis.scripts || {};
+
   let { id } = req.query;
 
-  let encoded = scripts[id];
+  let encoded = globalThis.scripts[id];
 
   if (!encoded) {
     return res.send("-- script não encontrado");
